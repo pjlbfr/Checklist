@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CheckList</string>
+    <string name="list_task_title">Tasks</string>
+    <string name="enter_text">Enter text</string>
+    <string name="change_title">Change Task</string>
+    <string name="add_title">Add Task</string>
+    <string name="are_you_sure">Exit: Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="change_task">Change task!</string>
+    <string name="not_be_empty">The input field must not be empty!</string>
+</resources>

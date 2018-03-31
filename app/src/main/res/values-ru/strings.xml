@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Чеклист</string>
+    <string name="list_task_title">Задания</string>
+    <string name="enter_text">Введите текст</string>
+    <string name="change_title">Редактирование</string>
+    <string name="add_title">Новая задача</string>
+    <string name="are_you_sure">Выход: Вы уверены?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="change_task">Измените задание!</string>
+    <string name="not_be_empty">Поле ввода не должно быть пустым!</string>
+</resources>
