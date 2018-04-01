@@ -35,7 +35,7 @@ public class ListTaskPresenter implements ListTaskContract.Presenter {
     }
 
     @Override
-    public void removeTasks(List<Task> list) {
+    public void removeTasks(List<String> list) {
         realmRequest.removeTasks(list);
         getTasks();
     }

@@ -19,6 +19,6 @@ public interface ListTaskContract {
     interface Presenter extends BasePresenter{
         void initRealm();
         void getTasks();
-        void removeTasks(List<Task> list);
+        void removeTasks(List<String> list);
     }
 }

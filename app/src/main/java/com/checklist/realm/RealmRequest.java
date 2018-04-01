@@ -42,11 +42,11 @@ public class RealmRequest {
         realm.commitTransaction();
     }
 
-    public void removeTasks(List<Task> list){
+    public void removeTasks(List<String> list){
         realm.beginTransaction();
         for (int i = 0; i < list.size(); i++){
             Task task = realm.where(Task.class)
-                             .equalTo("id", list.get(i).getId())
+                             .equalTo("id", list.get(i))
                              .findFirst();
             if (task != null)
                 task.deleteFromRealm();
