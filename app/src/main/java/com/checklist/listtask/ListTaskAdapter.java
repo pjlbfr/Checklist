@@ -88,7 +88,6 @@ public class ListTaskAdapter extends RecyclerView.Adapter<ListTaskAdapter.ViewHo
     private void selectItem(CardView cardView, String id){
         selectPosition.add(id);
         cardView.setCardBackgroundColor(Color.GRAY);
-
         actionMode.setTitle(String.valueOf(selectPosition.size()));
     }
 

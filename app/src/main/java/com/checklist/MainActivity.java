@@ -1,11 +1,9 @@
 package com.checklist;
 
 import android.content.DialogInterface;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,13 +16,10 @@ import com.checklist.listtask.ListTaskPresenter;
 
 public class MainActivity extends AppCompatActivity implements ListTaskFragment.OpenTaskListener{
 
-   // private String LISTTASKFRAGMENT_TAG = "ListTaskFragment";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("privet", "bundle = " + savedInstanceState);
         if (savedInstanceState == null) {
             ListTaskFragment listTaskFragment = ListTaskFragment.getInstance();
             getSupportFragmentManager().beginTransaction()
@@ -50,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements ListTaskFragment.
                                        .commit();
             new AddTaskPresenter(getApplicationContext(), addTaskFragment);
         }
-
         if (item.getItemId() == android.R.id.home){
             backDialog();
         }
@@ -68,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements ListTaskFragment.
     }
 
     private void back(){
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportFragmentManager().popBackStackImmediate();
     }
 
@@ -84,14 +79,12 @@ public class MainActivity extends AppCompatActivity implements ListTaskFragment.
         AlertDialog.Builder backDialog = new AlertDialog.Builder(
                 MainActivity.this);
         backDialog.setTitle(getResources().getString(R.string.are_you_sure));
-
         backDialog.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         back();
                     }
                 });
-
         backDialog.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

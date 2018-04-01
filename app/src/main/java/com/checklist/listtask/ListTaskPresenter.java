@@ -3,7 +3,6 @@ package com.checklist.listtask;
 import android.content.Context;
 
 import com.checklist.realm.RealmRequest;
-import com.checklist.model.Task;
 
 import java.util.List;
 
