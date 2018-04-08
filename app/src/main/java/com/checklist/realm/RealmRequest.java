@@ -4,7 +4,10 @@ import android.content.Context;
 
 import com.checklist.model.Task;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 import io.realm.Realm;
@@ -27,12 +30,17 @@ public class RealmRequest {
         return realm.where(Task.class).equalTo("id", id).findFirst();
     }
 
-    public void insertTask(final Task task){
+    public void insertTask(final String description){
         realm.beginTransaction();
         Task element = realm.createObject(Task.class, UUID.randomUUID().toString());
-        element.setDescription(task.getDescription().trim());
-        element.setDate(task.getDate());
+        element.setDescription(description);
+        element.setDate(getDate());
         realm.commitTransaction();
+    }
+
+    private String getDate(){
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.US);
+        return format.format(new Date());
     }
 
     public void changeTask(Task task){

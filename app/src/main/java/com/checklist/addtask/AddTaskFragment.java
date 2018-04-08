@@ -15,11 +15,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.checklist.R;
-import com.checklist.model.Task;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 /**
  * Created by Zodiakaio on 24.03.2018.
@@ -72,19 +67,13 @@ public class AddTaskFragment extends Fragment implements AddTaskContract.View{
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_add_task){
             if (!editText.getText().toString().trim().isEmpty()) {
-                Task task = new Task(editText.getText().toString().trim(), getDate());
-                presenter.insertData(task);
+                presenter.insertData(editText.getText().toString().trim());
                 close();
             } else if (getView() != null){
                 Snackbar.make(getView(), getResources().getString(R.string.not_be_empty), Snackbar.LENGTH_LONG).show();
             }
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private String getDate(){
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.US);
-        return format.format(new Date());
     }
 
     private void close(){

@@ -3,7 +3,6 @@ package com.checklist.addtask;
 import android.content.Context;
 
 import com.checklist.realm.RealmRequest;
-import com.checklist.model.Task;
 
 /**
  * Created by Zodiakaio on 24.03.2018.
@@ -28,8 +27,8 @@ public class AddTaskPresenter implements AddTaskContract.Presenter {
     }
 
     @Override
-    public void insertData(Task task) {
-        realmRequest.insertTask(task);
+    public void insertData(String description) {
+        realmRequest.insertTask(description);
     }
 
     @Override
